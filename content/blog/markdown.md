@@ -47,6 +47,8 @@ Ordered list:
 
 ![A large image](https://plchldr.co/i/1280x720?bg=3D8EB9)
 
+<div class="doublespace"></div>
+
 [^1]: A footnote. Footnotes can be used for things that could have explanation or extra context, but
 for which the explanation is not relevant or otherwise desirable to have inline.
 
