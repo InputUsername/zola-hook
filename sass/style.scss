@@ -1,0 +1,100 @@
+$foreground: #222222;
+$background: white;
+$secondary: gray;
+$accent: #5353ff;
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14pt;
+
+    line-height: 1.3em;
+
+    color: $foreground;
+    background-color: $background;
+
+    padding: 5em 25%;
+}
+
+.header-links {
+    a {
+        margin-right: 0.5em;
+    }
+
+    a:last-of-type {
+        margin-right: 0;
+    }
+}
+
+.space {
+    margin-bottom: 2em;
+}
+
+.secondary {
+    color: $secondary;
+}
+
+a, a:link, a:visited {
+    color: $accent;
+}
+
+a:hover {
+    color: darken($accent, 30%);
+}
+
+img {
+    max-width: 100%;
+}
+
+blockquote {
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 2px solid $secondary;
+}
+
+code {
+    background-color: #eeeeee;
+    padding: 0.1em 0.2em;
+}
+
+pre {
+    overflow: auto;
+    padding: 0.3em;
+
+    code {
+        background-color: transparent;
+        padding: 0;
+    }
+}
+
+.footnote-definition {
+    margin-top: 1em;
+
+    &:first-of-type {
+        margin-top: 3em;
+    }
+
+    sup {
+        color: $secondary;
+    }
+
+    p {
+        display: inline;
+    }
+}
+
+@media all and (max-width: 1200px) {
+    body {
+        padding: 3em 15%;
+    }
+}
+
+@media all and (max-width: 800px) {
+    body {
+        padding: 1em 1em;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    {% block extra_head %}
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}">
+    {% endblock extra_head %}
+</head>
+<body>
+    {% block header %}
+    <header class="space">
+        <h1>{{ config.title }}</h1>
+        {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
+        {% if config.extra.links or linked_pages %}
+        <nav class="header-links">
+            {% for link in config.extra.links %}
+            <a href="{{ link.href }}">{{ link.title }}</a>
+            {% endfor %}
+            {% for page in linked_pages %}
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+            {% endfor %}
+        </nav>
+        {% endif %}
+    </header>
+    {% endblock header %}
+    {% block content %}
+    <main>
+        {% if section.content %}
+        <div class="space">
+            {{ section.content | safe }}
+        </div>
+        {% endif %}
+        {% set blog = get_section(path="blog/_index.md") %}
+        {% if blog.pages %}
+        <h2>Recent posts</h2>
+        <ul>
+            {% for post in blog.pages | slice(end=20) %}
+            <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+            {% endfor %}
+        </ul>
+        <p><a href="{{ blog.permalink }}">Archive</a></p>
+        {% endif %}
+    </main>
+    {% endblock content %}
+</body>
+</html>

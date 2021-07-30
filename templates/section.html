@@ -1,0 +1,21 @@
+{% extends "page.html" %}
+
+{% block title %}{{ config.title }} | {{ section.title }}{% endblock title %}
+
+{% block content %}
+<main>
+    <h1>{{ section.title }}</h1>
+    {% if section.pages %}
+    {% for year, posts in section.pages | group_by(attribute="year") %}
+    <h2>{{ year }}</h2>
+    <ul>
+        {% for post in posts %}
+        <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+    {% endfor %}
+    {% else %}
+    <p>No posts yet.</p>
+    {% endif %}
+</main>
+{% endblock content %}

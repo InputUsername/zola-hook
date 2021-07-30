@@ -1,0 +1,9 @@
+name = "Hook"
+description = "Clean and simple personal site/blog theme"
+license = "MIT"
+homepage = "https://github.com/InputUsername/zola-hook"
+demo = "https://inputusername.github.io/zola-hook/"
+
+[author]
+name = "Koen Bolhuis"
+homepage = "https://koen.bolhu.is"
