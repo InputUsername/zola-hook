@@ -26,13 +26,14 @@
     </header>
     {% endblock header %}
     {% block content %}
+    {% set blog = get_section(path="blog/_index.md") %}
+    {% if section.content or blog.pages %}
     <main>
         {% if section.content %}
-        <div class="space">
+        <div {% if blog.pages %}class="space"{% endif %}>
             {{ section.content | safe }}
         </div>
         {% endif %}
-        {% set blog = get_section(path="blog/_index.md") %}
         {% if blog.pages %}
         <h2>Recent posts</h2>
         <ul>
@@ -43,6 +44,7 @@
         <p><a href="{{ blog.permalink }}">Archive</a></p>
         {% endif %}
     </main>
+    {% endif %}
     {% endblock content %}
 </body>
 </html>
