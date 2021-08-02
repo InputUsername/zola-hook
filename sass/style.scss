@@ -42,6 +42,10 @@ body {
     color: $secondary;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.25;
+}
+
 a, a:link, a:visited {
     color: $accent;
 }
@@ -63,6 +67,7 @@ blockquote {
 code {
     background-color: #eeeeee;
     padding: 0.1em 0.2em;
+    font-size: 12pt;
 }
 
 pre {
