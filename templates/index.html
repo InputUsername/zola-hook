@@ -46,5 +46,27 @@
     </main>
     {% endif %}
     {% endblock content %}
+    <div class="dark-mode-buttons">
+        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}"></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}"></button>
+    </div>
+    <script>
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            document.body.classList.toggle("dark-mode", true);
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            document.body.classList.toggle("dark-mode", false);
+        });
+
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.body.classList.toggle("dark-mode", prefersDark);
+    </script>
+    <noscript>
+        <style>
+            .dark-mode-buttons {
+                display: none;
+            }
+        </style>
+    </noscript>
 </body>
 </html>
