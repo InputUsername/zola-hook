@@ -48,6 +48,9 @@ The content in the root `_index.md` is included in the homepage if present.
 Below that is a list of the 20 most recent posts. For this, the `blog/_index.md` section is expected to exist
 (will error if it doesn't exist). There is also a link to an archive of all blog posts by year.
 
+Hook supports light/dark mode based on the user's preference. There is also a manual toggle button
+(requires JavaScript).
+
 ## Screenshots
 
 ### Homepage
@@ -59,6 +62,9 @@ Below that is a list of the 20 most recent posts. For this, the `blog/_index.md`
 
 ### Blog archive
 ![Blog archive](screenshot3.png)
+
+### Dark mode
+![Dark mode](screenshot4.png)
 
 ## License
 
