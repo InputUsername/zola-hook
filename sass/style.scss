@@ -1,7 +1,80 @@
 $foreground: #222222;
-$background: white;
+$background: #eeeeee;
 $secondary: gray;
+$tertiary: #dddddd;
 $accent: #5353ff;
+
+$foreground-dark: #eeeeee;
+$background-dark: #161616;
+$secondary-dark: #999999;
+$tertiary-dark: #444444;
+$accent-dark: $accent;
+
+@mixin light-theme {
+    color: $foreground;
+    background-color: $background;
+
+    .secondary {
+        color: $secondary;
+    }
+
+    a, a:link, a:visited {
+        color: $accent;
+    }
+
+    a:hover {
+        color: darken($accent, 30%);
+    }
+
+    blockquote {
+        border-left: 2px solid $secondary;
+    }
+
+    code {
+        background-color: $tertiary;
+    }
+
+    pre code {
+        background-color: transparent;
+    }
+
+    .footnote-definition sup {
+        color: $secondary;
+    }
+}
+
+@mixin dark-theme {
+    color: $foreground-dark;
+    background-color: $background-dark;
+
+    .secondary {
+        color: $secondary-dark;
+    }
+
+    a, a:link, a:visited {
+        color: $accent-dark;
+    }
+
+    a:hover {
+        color: lighten($accent-dark, 10%);
+    }
+
+    blockquote {
+        border-left: 2px solid $secondary-dark;
+    }
+
+    code {
+        background-color: $tertiary-dark;
+    }
+
+    pre code {
+        background-color: transparent;
+    }
+
+    .footnote-definition sup {
+        color: $secondary-dark;
+    }
+}
 
 html, body {
     margin: 0;
@@ -13,9 +86,6 @@ body {
     font-size: 14pt;
 
     line-height: 1.3em;
-
-    color: $foreground;
-    background-color: $background;
 
     padding: 5em 25%;
 }
@@ -38,20 +108,8 @@ body {
     margin-bottom: 4em;
 }
 
-.secondary {
-    color: $secondary;
-}
-
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.25;
-}
-
-a, a:link, a:visited {
-    color: $accent;
-}
-
-a:hover {
-    color: darken($accent, 30%);
 }
 
 img {
@@ -61,11 +119,9 @@ img {
 blockquote {
     margin-left: 0;
     padding-left: 1em;
-    border-left: 2px solid $secondary;
 }
 
 code {
-    background-color: #eeeeee;
     padding: 0.1em 0.2em;
     font-size: 12pt;
 }
@@ -75,7 +131,6 @@ pre {
     padding: 0.3em;
 
     code {
-        background-color: transparent;
         padding: 0;
     }
 }
@@ -87,12 +142,20 @@ pre {
         margin-top: 3em;
     }
 
-    sup {
-        color: $secondary;
-    }
-
     p {
         display: inline;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        @include light-theme;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        @include dark-theme;
     }
 }
 
