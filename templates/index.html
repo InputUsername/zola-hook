@@ -47,8 +47,8 @@
     {% endif %}
     {% endblock content %}
     <div class="dark-mode-buttons">
-        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}"></button>
-        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}"></button>
+        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt=""></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt=""></button>
     </div>
     <script>
         document.getElementById("dark-mode-on").addEventListener("click", function(e) {
