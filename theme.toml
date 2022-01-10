@@ -2,6 +2,7 @@ name = "Hook"
 description = "Clean and simple personal site/blog theme"
 license = "MIT"
 homepage = "https://github.com/InputUsername/zola-hook"
+min_version = "0.15.2"
 demo = "https://inputusername.github.io/zola-hook/"
 
 [author]
