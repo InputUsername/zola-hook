@@ -1,6 +1,7 @@
 {% extends "index.html" %}
 
 {% block title %}{{ config.title }} | {{ page.title }}{% endblock title %}
+{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
 
 {% block header %}
 <header class="space">
