@@ -47,8 +47,8 @@
     {% endif %}
     {% endblock content %}
     <div class="dark-mode-buttons">
-        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt=""></button>
-        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt=""></button>
+        <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
     </div>
     <script>
         const cls = document.body.classList;

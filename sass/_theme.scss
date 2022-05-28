@@ -2,13 +2,13 @@ $foreground: #222222;
 $background: #eeeeee;
 $secondary: gray;
 $tertiary: #dddddd;
-$accent: #5353ff;
+$accent: #3d3cba;
 
 $foreground-dark: #eeeeee;
 $background-dark: #161616;
 $secondary-dark: #999999;
 $tertiary-dark: #444444;
-$accent-dark: $accent;
+$accent-dark: #959bf0;
 
 @mixin light-theme {
     color: $foreground;
