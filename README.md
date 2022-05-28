@@ -27,9 +27,13 @@ The following templates are built-in:
 
 Templates have the following Tera blocks:
 - `title` - to override the default `<title>` (`config.title`);
+- `description` - to override the `<meta name="description">`'s content (`config.description`);
 - `extra_head` - to override styles and anything else in `<head>`;
 - `header` - to change the header (best to put this in a `<header>`);
 - `content` - to change the content (best to put this in a `<main>`).
+
+You can set a section or page description using `description` in your front matter.
+By default, the `description` in `config.toml` is used.
 
 You can define links to include in the header on the homepage in `config.toml`:
 ```toml

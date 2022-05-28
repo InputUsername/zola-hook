@@ -8,6 +8,7 @@ compile_sass = true
 build_search_index = false
 
 title = "Hook"
+description = "Hook is a theme for Zola"
 
 [markdown]
 
