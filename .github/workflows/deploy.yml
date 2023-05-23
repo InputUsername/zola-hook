@@ -1,17 +1,18 @@
-on: push
 name: Build and deploy GH Pages
+on:
+  push:
+    branches:
+      - main
 jobs:
   build:
-    name: Deploy
+    name: Build and deploy site
     runs-on: ubuntu-latest
     steps:
       # Checkout
-      - uses: actions/checkout@v2
+      - name: Checkout main
+        uses: actions/checkout@v3.0.0
       # Build & deploy
       - name: Deploy to gh-pages branch
-        uses: shalzz/zola-deploy-action@v0.13.0
+        uses: shalzz/zola-deploy-action@v0.17.2
         env:
-          # Target branch
-          PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          TOKEN: $GITHUB_ACTOR:${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
