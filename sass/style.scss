@@ -71,6 +71,28 @@ pre {
     }
 }
 
+table {
+    border-spacing: 0;
+
+    th, td {
+        border: 1px solid;
+        border-left: none;
+        padding: 0.2em;
+
+        &:first-child {
+            border-left: 1px solid;
+        }
+    }
+
+    th {
+        border-top: 1px solid;
+    }
+
+    td {
+        border-top: none;
+    }
+}
+
 @media all and (max-width: 1200px) {
     body {
         padding: 3em 15%;

@@ -41,6 +41,16 @@ $accent-dark: #959bf0;
     .footnote-definition sup {
         color: $secondary;
     }
+
+    table {
+        th, td {
+            border-color: darken($tertiary, 5%);
+        }
+
+        thead, tr:nth-child(even) {
+            background-color: lighten($tertiary, 10%);
+        }
+    }
 }
 
 @mixin dark-theme {
@@ -73,6 +83,16 @@ $accent-dark: #959bf0;
 
     .footnote-definition sup {
         color: $secondary-dark;
+    }
+
+    table {
+        th, td {
+            border-color: $tertiary-dark;
+        }
+
+        thead, tr:nth-child(even) {
+            background-color: darken($tertiary-dark, 15%);
+        }
     }
 }
 
