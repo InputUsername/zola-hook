@@ -8,6 +8,11 @@
     {% block extra_head %}
     <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
     {% endblock extra_head %}
+    {% block feed_link %}
+    {% if config.generate_feed %}
+    <link rel="alternate" type="application/atom+xml" title="Feed" href="{{ get_url(path=config.feed_filename, trailing_slash=false) }}">
+    {% endif %}
+    {% endblock %}
 </head>
 <body>
     {% block header %}
