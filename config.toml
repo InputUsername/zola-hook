@@ -10,6 +10,11 @@ build_search_index = false
 title = "Hook"
 description = "Hook is a theme for Zola"
 
+taxonomies = [
+  {name = "categories"},
+  {name = "tags"},
+]
+
 [markdown]
 
 # Whether to do syntax highlighting
