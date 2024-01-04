@@ -1,116 +1,30 @@
-$foreground: #222222;
-$background: #eeeeee;
-$secondary: gray;
-$tertiary: #dddddd;
-$accent: #3d3cba;
-
-$foreground-dark: #eeeeee;
-$background-dark: #161616;
-$secondary-dark: #999999;
-$tertiary-dark: #444444;
-$accent-dark: #959bf0;
-
-@mixin light-theme {
-    color: $foreground;
-    background-color: $background;
-
-    .secondary {
-        color: $secondary;
-    }
-
-    a, a:link, a:visited {
-        color: $accent;
-    }
-
-    a:hover {
-        color: darken($accent, 30%);
-    }
-
-    blockquote {
-        border-left: 2px solid $secondary;
-    }
-
-    code {
-        background-color: $tertiary;
-    }
-
-    pre code {
-        background-color: transparent;
-    }
-
-    .footnote-definition sup {
-        color: $secondary;
-    }
-
-    table {
-        th, td {
-            border-color: darken($tertiary, 5%);
-        }
-
-        thead, tr:nth-child(even) {
-            background-color: lighten($tertiary, 10%);
-        }
-    }
-}
-
-@mixin dark-theme {
-    color: $foreground-dark;
-    background-color: $background-dark;
-
-    .secondary {
-        color: $secondary-dark;
-    }
-
-    a, a:link, a:visited {
-        color: $accent-dark;
-    }
-
-    a:hover {
-        color: lighten($accent-dark, 10%);
-    }
-
-    blockquote {
-        border-left: 2px solid $secondary-dark;
-    }
-
-    code {
-        background-color: $tertiary-dark;
-    }
-
-    pre code {
-        background-color: transparent;
-    }
-
-    .footnote-definition sup {
-        color: $secondary-dark;
-    }
-
-    table {
-        th, td {
-            border-color: $tertiary-dark;
-        }
-
-        thead, tr:nth-child(even) {
-            background-color: darken($tertiary-dark, 15%);
-        }
-    }
-}
+// MARK: Variables
 
 @media (prefers-color-scheme: light) {
-    body {
-        @include light-theme;
+    :root.light {
+        --foreground: #222222;
+        --background: orange;
+        --secondary: gray;
+        --tertiary: #dddddd;
+        --accent: #3d3cba;
     }
 }
 
 @media (prefers-color-scheme: dark) {
-    body {
-        @include dark-theme;
+    :root.dark {
+        --foreground: #eeeeee;
+        --background: orange;
+        --secondary: #999999;
+        --tertiary: #444444;
+        --accent: #959bf0;
     }
 }
 
+
+// MARK: Light/dark config
+
 .dark-mode-buttons {
     position: absolute;
-
     top: 1em;
     right: 1em;
 }
@@ -124,26 +38,66 @@ $accent-dark: #959bf0;
     }
 }
 
-body:not(.dark-mode) {
-    @include light-theme;
 
-    #dark-mode-on {
-        display: inline;
+// MARK: Styles
+
+body {
+    color: var(--foreground);
+    background-color: var(--background);
+
+    &:not(.dark-mode) {         
+        #dark-mode-on {
+            display: inline;
+        }
+        #dark-mode-off {
+            display: none;
+        }
     }
 
-    #dark-mode-off {
-        display: none;
+    &.dark-mode {
+        #dark-mode-on {
+            display: none;
+        }
+        #dark-mode-off {
+            display: inline;
+        }
     }
 }
 
-body.dark-mode {
-    @include dark-theme;
+.secondary {
+    color: var(--secondary);
+}
 
-    #dark-mode-on {
-        display: none;
+a, a:link, a:visited {
+    color: var(--accent);
+}
+
+a:hover {
+    color: color-mix(in hsl, var(--accent) 30%, black);
+}
+
+blockquote {
+    border-left: 2px solid var(--secondary);
+}
+
+code {
+    background-color: var(--tertiary);
+}
+
+pre code {
+    background-color: transparent;
+}
+
+.footnote-definition sup {
+    color: var(--secondary);
+}
+
+table {
+    th, td {
+        border-color: color-mix(in hsl, var(--tertiary) 5%, black);
     }
 
-    #dark-mode-off {
-        display: inline;
+    thead, tr:nth-child(even) {
+        background-color: color-mix(in hsl, var(--tertiary) 10%, white);
     }
 }
