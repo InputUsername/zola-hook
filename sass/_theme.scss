@@ -1,51 +1,26 @@
 // MARK: Variables
 
-@media (prefers-color-scheme: light) {
-    :root.light {
-        --foreground: #222222;
-        --background: orange;
-        --secondary: gray;
-        --tertiary: #dddddd;
-        --accent: #3d3cba;
-    }
+:root.light-mode {
+    --foreground: #222222;
+    --background: #777777;
+    --secondary: gray;
+    --tertiary: #dddddd;
+    --accent: #3d3cba;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root.dark {
-        --foreground: #eeeeee;
-        --background: orange;
-        --secondary: #999999;
-        --tertiary: #444444;
-        --accent: #959bf0;
-    }
+:root.dark-mode {
+    --foreground: #eeeeee;
+    --background: #161616;
+    --secondary: #999999;
+    --tertiary: #444444;
+    --accent: #959bf0;
 }
 
 
 // MARK: Light/dark config
 
-.dark-mode-buttons {
-    position: absolute;
-    top: 1em;
-    right: 1em;
-}
-
-.dark-mode-button {
-    border: none;
-    background-color: transparent;
-
-    &:hover {
-        cursor: pointer;
-    }
-}
-
-
-// MARK: Styles
-
-body {
-    color: var(--foreground);
-    background-color: var(--background);
-
-    &:not(.dark-mode) {         
+html {
+    &.light-mode {         
         #dark-mode-on {
             display: inline;
         }
@@ -62,6 +37,31 @@ body {
             display: inline;
         }
     }
+}
+
+.dark-mode-buttons {
+    position: absolute;
+
+    top: 1em;
+    right: 1em;
+}
+
+.dark-mode-button {
+    border: none;
+    background-color: transparent;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+
+
+// MARK: Styles
+
+body {
+    color: var(--foreground);
+    background-color: var(--background);
 }
 
 .secondary {
