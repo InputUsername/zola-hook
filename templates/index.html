@@ -57,23 +57,34 @@
         <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
     </div>
     <script>
-        const cls = document.body.classList;
+        const cls = document.querySelector("html").classList;
         const getSessionTheme = sessionStorage.getItem("theme");
+
+        function setDark() {
+            cls.add("dark-mode");
+            cls.remove("light-mode");
+            sessionStorage.setItem("theme", "dark");
+        }
+        function setLight() {
+            cls.add("light-mode");
+            cls.remove("dark-mode");
+            sessionStorage.setItem("theme", "light");
+        }
+
         if (getSessionTheme === "dark") {
-            cls.toggle("dark-mode", true);
+            setDark()
         } else if (getSessionTheme === "light") {
-            cls.toggle("dark-mode", false);
+            setLight()
         } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            cls.toggle("dark-mode", true);
+            setDark()
         }
 
         document.getElementById("dark-mode-on").addEventListener("click", function(e) {
-            cls.toggle("dark-mode", true);
-            sessionStorage.setItem("theme", "dark");
+            setDark()
+            
         });
         document.getElementById("dark-mode-off").addEventListener("click", function(e) {
-            cls.toggle("dark-mode", false);
-            sessionStorage.setItem("theme", "light");
+            setLight()
         });
     </script>
     <noscript>
