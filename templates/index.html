@@ -58,7 +58,7 @@
     </div>
     <script>
         const cls = document.querySelector("html").classList;
-        const getSessionTheme = sessionStorage.getItem("theme");
+        const sessionTheme = sessionStorage.getItem("theme");
 
         function setDark() {
             cls.add("dark-mode");
@@ -71,20 +71,19 @@
             sessionStorage.setItem("theme", "light");
         }
 
-        if (getSessionTheme === "dark") {
-            setDark()
-        } else if (getSessionTheme === "light") {
-            setLight()
+        if (sessionTheme === "dark") {
+            setDark();
+        } else if (sessionTheme === "light") {
+            setLight();
         } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-            setDark()
+            setDark();
         }
 
         document.getElementById("dark-mode-on").addEventListener("click", function(e) {
-            setDark()
-            
+            setDark();
         });
         document.getElementById("dark-mode-off").addEventListener("click", function(e) {
-            setLight()
+            setLight();
         });
     </script>
     <noscript>
