@@ -1,41 +1,46 @@
-// MARK: Variables
-
-:root.light-mode {
+@mixin light-theme {
     --foreground: #222222;
     --background: #eeeeee;
-    --secondary: gray;
+    --secondary: #808080;
     --tertiary: #dddddd;
     --accent: #3d3cba;
+    --accent-highlight: #171746;
+    --table-border: #d0d0d0;
+    --table-row: #f7f7f7;
 }
 
-:root.dark-mode {
+@mixin dark-theme {
     --foreground: #eeeeee;
     --background: #161616;
     --secondary: #999999;
     --tertiary: #444444;
     --accent: #959bf0;
+    --accent-highlight: #c2c5f6;
+    --table-border: var(--tertiary);
+    --table-row: #1e1e1e;
 }
 
+:root.light-mode {
+    @include light-theme;
 
-// MARK: Light/dark config
-
-html {
-    &.light-mode {         
-        #dark-mode-on {
-            display: inline;
-        }
-        #dark-mode-off {
-            display: none;
-        }
+    #dark-mode-on {
+        display: inline;
     }
 
-    &.dark-mode {
-        #dark-mode-on {
-            display: none;
-        }
-        #dark-mode-off {
-            display: inline;
-        }
+    #dark-mode-off {
+        display: none;
+    }
+}
+
+:root.dark-mode {
+    @include dark-theme;
+
+    #dark-mode-on {
+        display: none;
+    }
+
+    #dark-mode-off {
+        display: inline;
     }
 }
 
@@ -55,9 +60,17 @@ html {
     }
 }
 
+@media (prefers-color-scheme: light) {
+    :root {
+        @include light-theme;
+    }
+}
 
-
-// MARK: Styles
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-theme;
+    }
+}
 
 body {
     color: var(--foreground);
@@ -73,7 +86,7 @@ a, a:link, a:visited {
 }
 
 a:hover {
-    color: color-mix(in hsl, var(--accent) 30%, black);
+    color: var(--accent-highlight);
 }
 
 blockquote {
@@ -94,10 +107,10 @@ pre code {
 
 table {
     th, td {
-        border-color: color-mix(in hsl, var(--tertiary) 5%, black);
+        border-color: var(--table-border);
     }
 
     thead, tr:nth-child(even) {
-        background-color: color-mix(in hsl, var(--tertiary) 10%, white);
+        background-color: var(--table-row);
     }
 }

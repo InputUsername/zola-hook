@@ -75,21 +75,24 @@ table {
     border-spacing: 0;
 
     th, td {
-        border: 1px solid;
-        border-left: none;
+        border-width: 1px;
+        border-style: solid;
+        border-left-style: none;
         padding: 0.2em;
 
         &:first-child {
-            border-left: 1px solid;
+            border-left-width: 1px;
+            border-left-style: solid;
         }
     }
 
     th {
-        border-top: 1px solid;
+        border-top-width: 1px;
+        border-top-style: solid;
     }
 
     td {
-        border-top: none;
+        border-top-style: none;
     }
 }
 
