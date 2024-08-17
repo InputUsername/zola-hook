@@ -1,110 +1,46 @@
-$foreground: #222222;
-$background: #eeeeee;
-$secondary: gray;
-$tertiary: #dddddd;
-$accent: #3d3cba;
-
-$foreground-dark: #eeeeee;
-$background-dark: #161616;
-$secondary-dark: #999999;
-$tertiary-dark: #444444;
-$accent-dark: #959bf0;
-
 @mixin light-theme {
-    color: $foreground;
-    background-color: $background;
-
-    .secondary {
-        color: $secondary;
-    }
-
-    a, a:link, a:visited {
-        color: $accent;
-    }
-
-    a:hover {
-        color: darken($accent, 30%);
-    }
-
-    blockquote {
-        border-left: 2px solid $secondary;
-    }
-
-    code {
-        background-color: $tertiary;
-    }
-
-    pre code {
-        background-color: transparent;
-    }
-
-    .footnote-definition sup {
-        color: $secondary;
-    }
-
-    table {
-        th, td {
-            border-color: darken($tertiary, 5%);
-        }
-
-        thead, tr:nth-child(even) {
-            background-color: lighten($tertiary, 10%);
-        }
-    }
+    --foreground: #222222;
+    --background: #eeeeee;
+    --secondary: #808080;
+    --tertiary: #dddddd;
+    --accent: #3d3cba;
+    --accent-highlight: #171746;
+    --table-border: #d0d0d0;
+    --table-row: #f7f7f7;
 }
 
 @mixin dark-theme {
-    color: $foreground-dark;
-    background-color: $background-dark;
+    --foreground: #eeeeee;
+    --background: #161616;
+    --secondary: #999999;
+    --tertiary: #444444;
+    --accent: #959bf0;
+    --accent-highlight: #c2c5f6;
+    --table-border: var(--tertiary);
+    --table-row: #1e1e1e;
+}
 
-    .secondary {
-        color: $secondary-dark;
+:root.light-mode {
+    @include light-theme;
+
+    #dark-mode-on {
+        display: inline;
     }
 
-    a, a:link, a:visited {
-        color: $accent-dark;
-    }
-
-    a:hover {
-        color: lighten($accent-dark, 10%);
-    }
-
-    blockquote {
-        border-left: 2px solid $secondary-dark;
-    }
-
-    code {
-        background-color: $tertiary-dark;
-    }
-
-    pre code {
-        background-color: transparent;
-    }
-
-    .footnote-definition sup {
-        color: $secondary-dark;
-    }
-
-    table {
-        th, td {
-            border-color: $tertiary-dark;
-        }
-
-        thead, tr:nth-child(even) {
-            background-color: darken($tertiary-dark, 15%);
-        }
+    #dark-mode-off {
+        display: none;
     }
 }
 
-@media (prefers-color-scheme: light) {
-    body {
-        @include light-theme;
-    }
-}
+:root.dark-mode {
+    @include dark-theme;
 
-@media (prefers-color-scheme: dark) {
-    body {
-        @include dark-theme;
+    #dark-mode-on {
+        display: none;
+    }
+
+    #dark-mode-off {
+        display: inline;
     }
 }
 
@@ -124,26 +60,57 @@ $accent-dark: #959bf0;
     }
 }
 
-body:not(.dark-mode) {
-    @include light-theme;
-
-    #dark-mode-on {
-        display: inline;
-    }
-
-    #dark-mode-off {
-        display: none;
+@media (prefers-color-scheme: light) {
+    :root {
+        @include light-theme;
     }
 }
 
-body.dark-mode {
-    @include dark-theme;
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include dark-theme;
+    }
+}
 
-    #dark-mode-on {
-        display: none;
+body {
+    color: var(--foreground);
+    background-color: var(--background);
+}
+
+.secondary {
+    color: var(--secondary);
+}
+
+a, a:link, a:visited {
+    color: var(--accent);
+}
+
+a:hover {
+    color: var(--accent-highlight);
+}
+
+blockquote {
+    border-left: 2px solid var(--secondary);
+}
+
+code {
+    background-color: var(--tertiary);
+}
+
+pre code {
+    background-color: transparent;
+}
+
+.footnote-definition sup {
+    color: var(--secondary);
+}
+
+table {
+    th, td {
+        border-color: var(--table-border);
     }
 
-    #dark-mode-off {
-        display: inline;
+    thead, tr:nth-child(even) {
+        background-color: var(--table-row);
     }
 }
