@@ -12,8 +12,17 @@
 {% block content %}
 <main>
     <h1>{{ page.title }}</h1>
-    {% if page.date %}
-    <p class="secondary">{{ page.date | date(format="%-d %B, %Y") }}</p>
+    {% if page.date or page.taxonomies %}
+    <p class="secondary small">
+        {% if page.date %}{{ page.date | date(format="%-d %B, %Y") }}{% endif %}
+        {% for taxonomy_name, terms in page.taxonomies %}
+        - {{ taxonomy_name | capitalize }}:
+        {% for term_name in terms %}
+        {% set term = get_taxonomy_term(kind=taxonomy_name, term=term_name) %}
+        <a href="{{ term.permalink }}">{{ term.name }}</a>{% if not loop.last %},{% endif %}
+        {% endfor %}
+        {% endfor %}
+    </p>
     {% endif %}
     <div class="space"></div>
     {{ page.content | safe }}
