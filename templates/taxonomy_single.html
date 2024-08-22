@@ -1,14 +1,18 @@
 {% extends "page.html" %}
 
-{% block title %}
-{% endblock title %}
+{% block title %}{{ config.title }} | {{ term.name }}{% endblock title %}
 
 {% block content %}
 <main>
-    <div>
+    <h1>{{ taxonomy.name | capitalize }} - {{ term.name }} </h1>
+    <ul>
         {% for page in term.pages %}
-        <p><time>{{ page.date }}</time> - <a href="{{ page.permalink | safe }}">{{ page.title }}</a></p>
+        <li>
+            <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+            {% if page.date %}<span class="secondary small">({{ page.date }})</span>{% endif %}
+        </li>
         {% endfor %}
-    </div>
+    </ul>
+    <p><a href="{{ get_taxonomy(kind=taxonomy.name) | get(key='permalink') }}">All {{ taxonomy.name }}</a></p>
 </main>
 {% endblock content %}
