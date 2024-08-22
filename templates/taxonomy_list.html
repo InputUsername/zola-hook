@@ -1,0 +1,20 @@
+{% extends "page.html" %}
+
+{% block title %}{{ config.title }} | {{ taxonomy.name | capitalize }}{% endblock title %}
+
+{% block content %}
+<main>
+    <h1>{{ taxonomy.name | capitalize }}</h1>
+    <div>
+        <ul>
+            {% for term in terms %}
+            <li>
+                <a href="{{ term.permalink }}">{{ term.name }}</a>
+                {% set count = term.pages | length %}
+                <span class="secondary small">({{ count }} page{{ count | pluralize }})</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</main>
+{% endblock content %}
