@@ -11,8 +11,8 @@ title = "Hook"
 description = "Hook is a theme for Zola"
 
 taxonomies = [
-  {name = "categories"},
-  {name = "tags"},
+    { name = "categories" },
+    { name = "tags" },
 ]
 
 [markdown]
