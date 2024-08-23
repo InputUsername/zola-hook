@@ -9,7 +9,7 @@
         {% for page in term.pages %}
         <li>
             <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
-            {% if page.date %}<span class="secondary small">({{ page.date }})</span>{% endif %}
+            {% if page.date %}<span class="secondary small">({{ page.date | date(format="%d %b, %Y") }})</span>{% endif %}
         </li>
         {% endfor %}
     </ul>
