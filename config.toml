@@ -22,6 +22,8 @@ taxonomies = [
 highlight_code = true
 highlight_theme = "agola-dark"
 
+bottom_footnotes = true
+
 [extra]
 # Put all your custom variables here
 

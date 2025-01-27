@@ -66,13 +66,15 @@ pre {
 .footnote-definition {
     margin-top: 1em;
 
-    &:first-of-type {
-        margin-top: 3em;
-    }
+    font-size: 75%;
 
     p {
         display: inline;
     }
+}
+
+.footnotes-list {
+    font-size: 75%;
 }
 
 table {

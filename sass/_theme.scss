@@ -121,6 +121,19 @@ pre code {
     color: var(--secondary);
 }
 
+.footnotes-list li {
+    color: var(--secondary);
+
+    p {
+        color: var(--foreground);
+    }
+}
+
+hr {
+    border: none;
+    border-bottom: 1px solid var(--table-border);
+}
+
 table {
     th, td {
         border-color: var(--table-border);
