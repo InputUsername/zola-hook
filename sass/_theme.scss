@@ -121,6 +121,10 @@ pre code {
     color: var(--secondary);
 }
 
+.footnotes {
+    border-top: 1px solid var(--table-border);
+}
+
 .footnotes-list li {
     color: var(--secondary);
 

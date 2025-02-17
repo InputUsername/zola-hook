@@ -60,8 +60,6 @@ Ordered list:
 | They even    | have alternating | row colors!                |
 | Let me add   | another row so   | it's easier to see.        |
 
-<div class="doublespace"></div>
-
 [^1]: A footnote. Footnotes can be used for things that could have explanation or extra context, but
 for which the explanation is not relevant or otherwise desirable to have inline.
 
