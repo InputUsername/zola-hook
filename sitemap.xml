@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/about/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/blog/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/blog/hello-world/</loc>
+        <lastmod>2021-07-29</lastmod>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/blog/markdown/</loc>
+        <lastmod>2021-07-30</lastmod>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/categories/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/categories/intro/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/tags/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/tags/markdown/</loc>
+    </url>
+    <url>
+        <loc>https://inputusername.github.io/zola-hook/tags/syntax/</loc>
+    </url>
+</urlset>

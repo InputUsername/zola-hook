@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This page demonstrates how Markdown looks in the Hook theme for Zola">
+    <title>Hook | Markdown example</title>
+    
+    <link rel="stylesheet" href="https://inputusername.github.io/zola-hook/style.css?h=501c6ea82db27d74ea03">
+    
+    
+        
+    
+</head>
+<body>
+    
+<header class="space">
+    <a href="https:&#x2F;&#x2F;inputusername.github.io&#x2F;zola-hook&#x2F;">&LeftArrow; Home</a>
+</header>
+
+    
+<main>
+    <h1>Markdown example</h1>
+    
+    <p class="secondary small">
+        30 July, 2021
+
+        
+        
+        
+        
+        
+        
+        
+
+        
+        
+        - Categories:
+        
+        
+        <a href="https:&#x2F;&#x2F;inputusername.github.io&#x2F;zola-hook&#x2F;categories&#x2F;intro&#x2F;">intro</a>
+        
+        
+        
+        - Tags:
+        
+        
+        <a href="https:&#x2F;&#x2F;inputusername.github.io&#x2F;zola-hook&#x2F;tags&#x2F;markdown&#x2F;">markdown</a>,
+        
+        
+        <a href="https:&#x2F;&#x2F;inputusername.github.io&#x2F;zola-hook&#x2F;tags&#x2F;syntax&#x2F;">syntax</a>
+        
+        
+    </p>
+    
+    <div class="space"></div>
+    <p>This post is a markdown example.</p>
+<p>Here is <a href="http://example.com">a link</a>.</p>
+<p>Some <em>italic text</em> and <strong>bold text</strong> and <del>strikethrough text</del> and <code>inline code</code>. <sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">1</a></sup></p>
+<pre data-lang="rust" style="background-color:#31333d;color:#ffffffc4;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#707180;">// Here is a code block
+</span><span>
+</span><span style="color:#a3cbe3;">fn </span><span style="color:#a2ba43;">main</span><span>() {
+</span><span>    println!(</span><span style="font-weight:bold;color:#dbbb3d;">&quot;</span><span>Hello world!</span><span style="font-weight:bold;color:#dbbb3d;">&quot;</span><span>);
+</span><span>}
+</span></code></pre>
+<p>Unordered list: <sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">2</a></sup></p>
+<ul>
+<li>An unordered,</li>
+<li>bulleted list</li>
+<li>of items</li>
+</ul>
+<p>Ordered list:</p>
+<ol>
+<li>An ordered,</li>
+<li>numbered list</li>
+<li>of items</li>
+</ol>
+<blockquote>
+<p>A quote.</p>
+<p>It contains multiple paragraphs.</p>
+</blockquote>
+<h1 id="heading-1">Heading 1</h1>
+<h2 id="heading-2">Heading 2</h2>
+<h3 id="heading-3">Heading 3</h3>
+<h4 id="heading-4">Heading 4</h4>
+<h5 id="heading-5">Heading 5</h5>
+<h6 id="heading-6">Heading 6</h6>
+<p><img src="https://plchldr.co/i/480x360?bg=EB6361" alt="An example image" /></p>
+<p><img src="https://plchldr.co/i/1280x720?bg=3D8EB9" alt="A large image" /></p>
+<table><thead><tr><th>Hello world!</th><th>This is a table.</th><th>Tables are also supported.</th></tr></thead><tbody>
+<tr><td>They even</td><td>have alternating</td><td>row colors!</td></tr>
+<tr><td>Let me add</td><td>another row so</td><td>it's easier to see.</td></tr>
+</tbody></table>
+<footer class="footnotes">
+<ol class="footnotes-list">
+<li id="fn-1">
+<p>A footnote. Footnotes can be used for things that could have explanation or extra context, but
+for which the explanation is not relevant or otherwise desirable to have inline. <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p>Another footnote. <a href="#fr-2-1">↩</a></p>
+</li>
+</ol>
+</footer>
+
+</main>
+
+    <div class="dark-mode-buttons">
+        <button class="dark-mode-button" id="dark-mode-on"><img src="https://inputusername.github.io/zola-hook/dark_mode.svg" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
+        <button class="dark-mode-button" id="dark-mode-off"><img src="https://inputusername.github.io/zola-hook/light_mode.svg" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
+    </div>
+    <script>
+        const cls = document.querySelector("html").classList;
+        const sessionTheme = sessionStorage.getItem("theme");
+
+        function setDark() {
+            cls.add("dark-mode");
+            cls.remove("light-mode");
+            sessionStorage.setItem("theme", "dark");
+        }
+        function setLight() {
+            cls.add("light-mode");
+            cls.remove("dark-mode");
+            sessionStorage.setItem("theme", "light");
+        }
+
+        if (sessionTheme === "dark") {
+            setDark();
+        } else if (sessionTheme === "light") {
+            setLight();
+        } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setDark();
+        }
+
+        document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+            setDark();
+        });
+        document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+            setLight();
+        });
+    </script>
+    <noscript>
+        <style>
+            .dark-mode-buttons {
+                display: none;
+            }
+        </style>
+    </noscript>
+</body>
+</html>
