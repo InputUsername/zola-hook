@@ -32,3 +32,6 @@ links = [
     { title = "GitHub", href = "https://github.com" },
     { title = "LinkedIn", href = "https://linkedin.com" }
 ]
+
+# Put all your custom css files name here
+custom_css = []

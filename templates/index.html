@@ -7,6 +7,11 @@
     <title>{% block title %}{{ config.title }}{% endblock title %}</title>
     {% block extra_head %}
     <link rel="stylesheet" href="{{ get_url(path='style.css', cachebust=true) }}">
+    {% if config.extra.custom_css %}
+        {% for file in config.extra.custom_css %}
+        <link rel="stylesheet" href="{{ get_url(path=file, cachebust=true) }}">
+        {% endfor %}
+    {% endif %}
     {% endblock extra_head %}
     {% block feed_link %}
         {% if config.generate_feeds %}
