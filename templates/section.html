@@ -12,13 +12,19 @@
     {% endif %}
 
     {% if section.pages %}
-        {% for post in section.pages | sort(attribute="date") | reverse %}
-            <ul>
-                <li>{{ post.date  }} <a href="{{ post.permalink }}">{{ post.title }}</a></li>
-            </ul>
-        {% endfor %}
+    {% set posts = section.pages | reverse %}
+    {% if not section.extra.disable_dates %}
+    {% set posts = section.pages | sort(attribute="date") | reverse %}
+
+    {% endif %}
+    {% for post in posts %}
+    <ul>
+        <li>{% if not section.extra.disable_dates %}{{ post.date  }}{% endif %} <a
+                href="{{ post.permalink }}">{{ post.title }}</a></li>
+    </ul>
+    {% endfor %}
     {% else %}
-        <p>No posts yet.</p>    
+    <p>No posts yet.</p>
     {% endif %}
 </main>
 {% endblock content %}
