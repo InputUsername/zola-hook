@@ -1,7 +1,7 @@
 {% extends "index.html" %}
 
 {% block title %}{{ config.title }} | {{ page.title }}{% endblock title %}
-{% block description %}{{ page.description | default(value=config.description) }}{% endblock description %}
+{% block description %}{{ page?.description or config.description }}{% endblock description %}
 
 {% block header %}
 <header class="space">
@@ -16,11 +16,7 @@
     <p class="secondary small">
         {% if page.date %}{{ page.date | date(format="%-d %B, %Y") }}{% endif %}
 
-        {% set_global sorted_taxonomies = [] %}
-        {% for taxonomy_name, _ in page.taxonomies %}
-        {% set_global sorted_taxonomies = sorted_taxonomies | concat(with=taxonomy_name) %}
-        {% endfor %}
-        {% set_global sorted_taxonomies = sorted_taxonomies | sort %}
+        {% set sorted_taxonomies = [taxonomy_name for taxonomy_name, _ in page.taxonomies] | sort %}
 
         {% for taxonomy_name in sorted_taxonomies %}
         {% set terms = page.taxonomies[taxonomy_name] %}

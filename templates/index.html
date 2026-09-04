@@ -30,7 +30,7 @@
     {% block header %}
     <header class="space">
         <h1>{{ config.title }}</h1>
-        {% set linked_pages = section.pages | filter(attribute="extra.in_header") %}
+        {% set linked_pages = [p for p in section.pages if p.extra.in_header | default(value=false)] %}
         {% if config.extra.links or linked_pages %}
         <nav class="header-links">
             {% for link in config.extra.links %}
@@ -55,7 +55,7 @@
         {% if blog.pages %}
         <h2>Recent posts</h2>
         <ul>
-            {% for post in blog.pages | slice(end=20) %}
+            {% for post in blog.pages[:20] %}
             <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
             {% endfor %}
         </ul>
