@@ -10,9 +10,9 @@ jobs:
     steps:
       # Checkout
       - name: Checkout main
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       # Build & deploy
       - name: Deploy to gh-pages branch
-        uses: shalzz/zola-deploy-action@v0.20.0
+        uses: shalzz/zola-deploy-action@1be083648a1db2853ce4970e381740c0e2fd06de # v0.23.6
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
