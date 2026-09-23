@@ -59,49 +59,35 @@ pre {
         padding: 0;
         min-width: 100%;
         display: inline-block;
+
+        &[data-name] {
+            padding-top: 1.8em;
+            position: relative;
+        }
+
+        &[data-name]::before {
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            padding-inline: 0.3em;
+
+            content: attr(data-name);
+
+            font-size: 75%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
     }
 
-    mark {
+    .giallo-l {
         display: block;
         width: 100%;
     }
 
-    table {
-        width: 100%;
-    }
-
-    table tr, table td {
-        padding: 0;
-        border: none;
-    }
-
-    table td:first-child {
-        text-align: center;
-        vertical-align: middle;
-        border: none;
+    .giallo-ln {
+        display: inline-block;
+        padding-inline-end: 1em;
         user-select: none;
-    }
-
-    &[data-linenos] {
-        padding-inline: 0;
-    }
-
-    &[data-name] {
-        padding-top: 1.8em;
-        position: relative;
-    }
-
-    &[data-name]::before {
-        position: absolute;
-        top: 0;
-        left: 0;
-
-        padding-inline: 0.3em;
-
-        content: attr(data-name);
-
-        font-size: 75%;
-        font-family: Arial, Helvetica, sans-serif;
     }
 }
 
