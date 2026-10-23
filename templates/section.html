@@ -6,7 +6,10 @@
 <main>
     <h1>{{ section.title }}</h1>
     {% if section.pages %}
-    {% for year, posts in section.pages | group_by(attribute="year") %}
+    {% set grouped_posts = section.pages | group_by(attribute="year") %}
+    {% set years = [year for year, _ in grouped_posts] | sort | reverse %}
+    {% for year in years %}
+    {% set posts = grouped_posts[year] %}
     <h2>{{ year }}</h2>
     <ul>
         {% for post in posts %}
