@@ -121,23 +121,15 @@ code {
 pre {
     code {
         background-color: transparent;
+
+        &[data-name]::before {
+            background-color: var(--code-tertiary);
+            color: var(--code-secondary);
+        }
     }
 
-    mark {
-        color: inherit;
-    }
-
-    table tr:nth-child(even) {
-        background-color: transparent;
-    }
-
-    table td:first-child {
+    .giallo-ln {
         color: var(--code-tertiary);
-    }
-
-    &[data-name]::before {
-        background-color: var(--code-tertiary);
-        color: var(--code-secondary);
     }
 }
 
