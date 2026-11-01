@@ -52,11 +52,11 @@ code {
 
 pre {
     overflow: auto;
-    padding: 0.3em;
     line-height: 1.2em;
 
     code {
         padding: 0;
+        padding-block: 0.3em;
         min-width: 100%;
         display: inline-block;
 
@@ -74,20 +74,22 @@ pre {
 
             content: attr(data-name);
 
-            font-size: 75%;
             font-family: Arial, Helvetica, sans-serif;
         }
     }
 
     .giallo-l {
-        display: block;
+        display: inline-block;
+        padding-inline: 0.3em;
+        box-sizing: border-box;
         width: 100%;
     }
 
     .giallo-ln {
         display: inline-block;
-        padding-inline-end: 1em;
+        padding-inline: 0.5em;
         user-select: none;
+        text-align: center;
     }
 }
 
